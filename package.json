@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This is Namo Package",
   "scripts": {
-    "test": "mtest "
+    "test": "mtest ",
+    "shuru": "parcel index.html",
+    "banao": "parcel build index.html"
   },
   "repository": {
     "type": "git",
