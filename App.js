@@ -35,14 +35,15 @@ const Header = () => {
 }
 
 // Bulding a Restro card component - Modular approach
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+    console.log(props);
     return(
         <div className="res-card" style={{ backgroundColor: "salmon"}}>
             <img className="res-logo" 
             alt="res-logo" 
             src="https://th.bing.com/th/id/OIP.vqRxzfyKjGXq0nhjMNDUIAHaE6?rs=1&pid=ImgDetMain"></img>
-            <h3>PP Specials</h3>
-            <h4>Weight Gainers, Fruit Blast, Green Salad, Carb Load, Anti-Oxidant Casata</h4>
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisine}</h4>
             <h4>4.3 Stars</h4>  
             <h4>43 Minutes</h4>  
 
@@ -55,18 +56,8 @@ const Body = () => {
         <div className="body">
             <div className="Search">Search Box</div>
             <div className="res-container">
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
+                <RestaurantCard resName="PP Specials" cuisine="Weight Gainers, Fruit Blast, Green Salad, Carb Load, Anti-Oxidant Casata"/>
+                <RestaurantCard resName="God's Own Kitchen" cuisine="Gobi Manchurian, Fried Rice, Keralite Thali"/> 
             </div>
         </div>
     )
