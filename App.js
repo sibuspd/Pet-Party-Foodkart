@@ -40,7 +40,7 @@ const RestaurantCard = (props) => {
     const {name,costForTwo,cuisines,avgRating} = resData?.info;
     const {deliveryTime} = resData?.info.sla;
     return(
-        <div className="res-card" style={{ backgroundColor: "salmon"}}>
+        <div className="res-card" style={{ backgroundColor: "lightgray"}}>
             <img className="res-logo" 
             alt="res-logo" 
             src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}></img>
@@ -1735,18 +1735,9 @@ const Body = () => {
         <div className="body">
             <div className="Search">Search Box</div>
             <div className="res-container">
-                <RestaurantCard resData={resList[0]}/>
-                <RestaurantCard resData={resList[1]}/>
-                <RestaurantCard resData={resList[2]}/>
-                <RestaurantCard resData={resList[3]}/>
-                <RestaurantCard resData={resList[5]}/>
-                <RestaurantCard resData={resList[6]}/>
-                <RestaurantCard resData={resList[7]}/>
-                <RestaurantCard resData={resList[8]}/>
-                <RestaurantCard resData={resList[9]}/>
-                <RestaurantCard resData={resList[10]}/>
-                <RestaurantCard resData={resList[11]}/>
-                <RestaurantCard resData={resList[12]}/>
+              {
+                resList.map((restaurant) => <RestaurantCard resData={restaurant}/>)
+              }
             </div>
         </div>
     )
