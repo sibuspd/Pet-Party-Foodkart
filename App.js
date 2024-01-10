@@ -37,13 +37,13 @@ const Header = () => {
 // Bulding a Restro card component - Modular approach
 const RestaurantCard = (props) => {
     const {resData} = props; 
-    const {name,costForTwo,cuisines,avgRating} = resData?.info;
+    const {name,costForTwo,cuisines,avgRating,cloudinaryImageId} = resData?.info;
     const {deliveryTime} = resData?.info.sla;
     return(
         <div className="res-card" style={{ backgroundColor: "lightgray"}}>
             <img className="res-logo" 
             alt="res-logo" 
-            src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}></img>
+            src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
             <h3>{name}</h3>
             <h4>{costForTwo}</h4>
             <h4>{cuisines.join(" | ")}</h4>
@@ -1736,7 +1736,7 @@ const Body = () => {
             <div className="Search">Search Box</div>
             <div className="res-container">
               {
-                resList.map((restaurant) => <RestaurantCard resData={restaurant}/>)
+                resList.map((restaurant) => <RestaurantCard key={restaurant.info.id} resData={restaurant}/>)
               }
             </div>
         </div>
