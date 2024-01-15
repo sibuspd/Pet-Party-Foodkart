@@ -19,4 +19,23 @@
 - Configures page for SSL-secured hosting i.e., HTTPS
 - Tree shaking Algorithm (removing ununsed codes in the project)
 - Different bundles for Dev and Production
-- 
+
+# Pet Party - Food Kart  
+/** 
+* Header
+* -Logo
+* -Nav Items
+* Body
+* -Search
+* -Restaurant Container
+*   -Restaurant Card
+*   -Img
+*   -Name of Res, Star Rating, Cuisine, Delivery Time
+* Footer
+* -Copyright
+* -Links
+* -Address
+* -Contact
+
+# React Hooks
+- Normal JS utility functions written by Fb developers inside Node Modules
