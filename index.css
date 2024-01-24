@@ -12,17 +12,17 @@
 .logo { 
     width: 78px;
     float: inline-start;
-    outline: 3px solid black;
+    outline: 3px dashed lightgray;
 }
 .nav-items > ul {
     justify-content: right;
     display: flex;
     list-style-type: none;
     font-size: 15px; font-weight:bold;
-    background-color: goldenrod;
+    background-color: lightgray;
     padding-top: 24px;
     padding-bottom: 8px;
-    outline: 3px solid black;
+    outline: 3px solid goldenrod;
 
 }
 .nav-items > ul,li {
@@ -36,7 +36,7 @@
 }
 .res-card:hover {
     cursor: pointer;
-    border: 2px solid saddlebrown;
+    border: 2px dashed goldenrod;
 }
 
 .Search {

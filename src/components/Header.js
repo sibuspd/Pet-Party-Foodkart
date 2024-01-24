@@ -8,9 +8,10 @@ const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>Home</li>
+                    <li>Cuisines</li>
                     <li>About Us</li>
-                    <li>Contact</li>
                     <li>Cart</li>
+                    <li>Contact</li>
                 </ul>
             </div>
         </div>
