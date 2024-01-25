@@ -11,12 +11,12 @@ const Body = () => {
     // awaits further execution till the API fetches data from cross-origin source.
     const json = await data.json();
     console.log(json); // Just to record what is being fetched from remote server in JSON format
-    setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Optional chaining
 };
 
-if(listOfRestaurants.length===0) return <Shimmer/>; // When the array is empty
-
-return (
+return(listOfRestaurants.length===0)? // When the array is empty (Conditional Rendering) 
+<Shimmer/>: // '?:' combination is ternary operator
+(
         <div className="body">
             <div className="filter">
               <button className="filter-btn"onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
@@ -28,6 +28,6 @@ return (
               }
             </div>
         </div>
-    )
-}
+    );
+};
 export default Body;

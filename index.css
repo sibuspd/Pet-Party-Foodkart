@@ -74,3 +74,9 @@ cursor: pointer;
     display: flex;
     flex-wrap: wrap;  
 }
+.login {
+    padding: 2px 10px;
+    cursor: pointer;
+    background-color:antiquewhite;
+    border-radius: 28px;
+}
