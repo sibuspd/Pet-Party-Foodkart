@@ -39,3 +39,7 @@
 
 # React Hooks
 - Normal JS utility functions written by Fb developers inside Node Modules
+
+# 2 Types of Routing in Web Apps
+- Client Side Routing
+- Server Side Routing 
