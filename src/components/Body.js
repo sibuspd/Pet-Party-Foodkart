@@ -11,13 +11,18 @@ const Body = () => {
   useEffect(()=>{fetchData();},[]); // fetchData() is the effect/side-effect that runs by default here.
     
   const fetchData= async ()=>{
-    const data = await  fetch({API_URL}); 
+    const data = await  fetch(API_URL); 
     // awaits further execution till the API fetches data from cross-origin source.
     const json = await data.json();
     console.log(json); // Just to record what is being fetched from remote server in JSON format
     
-    setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Optional chaining
-    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || 
+    json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants; //Optional chaining
+    //created a variable to store changing data from API based on screen size using Logical OR to avoid falsy value with optional chaining
+    
+    setListOfRestaurants(restaurants); 
+    setFilteredRestaurant(restaurants);
+    console.log(restaurants);
   };
 
 return(listOfRestaurants.length===0)? // When the array is empty (Conditional Rendering) 
