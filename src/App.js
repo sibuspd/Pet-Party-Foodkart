@@ -8,27 +8,28 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Outlet/>
-        </div>
-    )
-}
+  return (
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+  );
+};
 
 const appRouter = createBrowserRouter([
-    {path:"/",element:<AppLayout/>,errorElement:<Error/>,
-    children:[
-        {path:"/",element:<Body/>,errorElement:<Error/>},
-        {path:"/about",element:<About/>,errorElement:<Error/>},
-        {path:"/contact",element:<Contact/>,errorElement:<Error/>},
-        {path:"/restaurants/:resId",element:<RestaurantMenu/>}],
-    errorElement:<Error/>
-    },
-]); 
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      { path: "/", element: <Body />, errorElement: <Error /> },
+      { path: "/about", element: <About />, errorElement: <Error /> },
+      { path: "/contact", element: <Contact />, errorElement: <Error /> },
+      { path: "/restaurant/:resId", element: <RestaurantMenu /> },
+    ],
+    errorElement: <Error />,
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));    
-root.render(<RouterProvider router={appRouter}/>);
-
-
- 
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={appRouter} />);
