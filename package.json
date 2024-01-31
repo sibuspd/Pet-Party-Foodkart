@@ -4,8 +4,8 @@
   "description": "This is Namo Package",
   "scripts": {
     "test": "mtest ",
-    "shuru": "parcel index.html",
-    "banao": "parcel build index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
