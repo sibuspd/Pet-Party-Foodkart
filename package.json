@@ -4,7 +4,7 @@
   "description": "This is Namo Package",
   "scripts": {
     "test": "mtest ",
-    "start": "parcel index.html",
+    "shuru": "parcel index.html",
     "build": "parcel build index.html"
   },
   "repository": {

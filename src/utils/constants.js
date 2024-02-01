@@ -17,9 +17,7 @@ export const API_URL =
 
 export const MENU_API =
   "https://corsproxy.org/?" +
-  encodeURIComponent(
-    "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.51981990724166&lng=73.86026275822753&restaurantId="
-  );
+  encodeURIComponent("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.962163&lng=79.1506201&restaurantId=");
 
 /*
   export const MENU2_API =

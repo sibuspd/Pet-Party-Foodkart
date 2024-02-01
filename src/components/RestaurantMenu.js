@@ -10,30 +10,26 @@ const RestaurantMenu = () => {
   const fetchMenu = async () => {
     const data = await fetch(MENU_API + resId);
     const json = await data.json();
-    // console.log(json);
-    setResInfo(
-      json?.data?.cards[2]?.card?.card?.info ||
-        json?.data?.cards[0]?.card?.card?.info
-    );
-    console.log(resInfo);
+    console.log(json);
+    setResInfo(json.data);
+    // console.log(resInfo);
   };
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-  return resInfo === null ? (
-    <Shimmer />
-  ) : (
-    <div className="menu">
-      <h1>Restaurant Name: {resInfo.name}</h1>
-      <h1>Restaurant Id: {resId}</h1>
-      <h2>Menu</h2>
-      <ul>
-        <li>Biriyani</li>
-        <li>Chowmein</li>
-        <li>Pizza</li>
-      </ul>
-    </div>
-  );
+  useEffect(() => {fetchMenu();}, []); // to render the body only once at the start through blank array.
+
+  if(resInfo === null) return <Shimmer />;
+  const {name,cuisines, costForTwoMessage, avgRating} = resInfo?.cards[0]?.card?.card?.info;
+  const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
+  return(
+  <div className="Resmenu">
+  <h1 id="ResName">{name}</h1>
+  <h2 id="ResCost">{costForTwoMessage}</h2>
+  <p>{cuisines.join(" | ")}</p>
+  <h4>{avgRating} Stars</h4>
+  <h3 id="Menu">Menu:</h3>
+  <ul id="itemList">{itemCards.map((item) => <li key={item.card.info.id}>{item.card.info.name} - ₹{item.card.info.price/100}</li>)}
+  </ul>
+  </div>);
 };
 export default RestaurantMenu;

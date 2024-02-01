@@ -113,3 +113,14 @@ justify-content: center;
 padding-left: 17px;
 padding-right: 12px;
 }
+.Resmenu {
+    outline: solid black;
+    background-color: beige;
+    border-radius: 12px;
+}
+#Menu {
+    background-color: aquamarine;
+    padding-left: 570px;
+    color: darkred;
+    text-decoration-line: underline;  
+}
