@@ -28,7 +28,8 @@ const RestaurantMenu = () => {
   <p>{cuisines.join(" | ")}</p>
   <h4>{avgRating} Stars</h4>
   <h3 id="Menu">Menu:</h3>
-  <ul id="itemList">{itemCards.map((item) => <li key={item.card.info.id}>{item.card.info.name} - ₹{item.card.info.price/100}</li>)}
+  <ul id="itemList">{itemCards.map((item) => 
+  <li key={item.card.info.id}>{item.card.info.name} - ₹{item.card.info.price/100}</li>)}
   </ul>
   </div>);
 };
