@@ -4,35 +4,38 @@ class UserClass extends React.Component {
     {
         super(props);
         this.state = {
-            count: 0,
+            userInfo: {
+                name: "Mr. XYZ",
+                location: "Default",
+                avatar_url: "No Avatar Image Loaded",
+            },
         };
-        console.log(props.name+" Child Constructor");
+        // console.log(props.name+" Child Constructor");
     }
-    componentDidMount(){
-        console.log(this.props.name+" componentDidMount")
+   async componentDidMount(){
+        // console.log(this.props.name+" componentDidMount")
+        const data= await fetch("https://api.github.com/users/sibuspd");
+        const json = await data.json();
+        console.log(json);
+
+        this.setState({userInfo: json,});
     }
 render() {
-    const {name, location} = this.props;
-    const {count} = this.state;
-    console.log(name+" Child Render");
-    return (
+    // console.log(name+" Child Render");
+    const {name, location, avatar_url} = this.state.userInfo;
+        return (
         <div className="user-card">
-            <h1>Count = {count}</h1>
-            <button onClick={() =>{
-                this.setState({count: this.state.count + 1,});
-            }}>Count++</button>
-            <button onClick={() =>{
-                this.setState({count: this.state.count - 1,});
-            }}>Count--</button>  
-            <h2>Name: {name}</h2>
-            <h3>Locations: {location}</h3>
-            <h4>Contact: @sibuspd</h4>
+            <img className="avatar" src={avatar_url}/>
+            <div className="user-details">
+                <h2>{name}</h2>
+                <h3>{location}, India</h3>
+                <h4>@sibuspd</h4>
+            </div>
         </div>
         );
     }    
-} 
+}   
 export default UserClass;
-
 
 
 

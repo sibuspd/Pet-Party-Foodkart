@@ -126,5 +126,17 @@ padding-right: 12px;
 }
 .user-card {
     padding: 10px;
-    border: 1px solid black;
+    background-color: black;
+    border-radius: 12px;
+    border: solid rgb(218, 179, 81);
+}
+.avatar {
+    width: 200px;
+    border-radius: 100px;
+    border: solid peru;
+}
+.user-details{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 200;
+    color: darkgoldenrod;
 }

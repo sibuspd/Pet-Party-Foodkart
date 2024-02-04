@@ -18,7 +18,6 @@ class About extends Component {
         <h2>Welcome to Pet Party</h2>
         <h4>We make online food deliveries in Sambalpur</h4>
         <UserClass name={"First Child"} location={"SAMBALPUR"}/>
-        <UserClass name={"Second Child"} location={"MUMBAI"}/> 
         <h3>Footer Section</h3>     
       </div>
     )
