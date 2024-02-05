@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useStatus from "../utils/useStatus";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants]= useState([]); // The second parameter updates the first variable when it is called elsewhere. At this point, 'listOfRestaurant' is blank i.e., a blank array
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
@@ -28,7 +29,11 @@ const Body = () => {
     setFilteredRestaurant(restaurants);
     console.log(restaurants);
   };
-  return(listOfRestaurants.length===0)? // When the array is empty (Conditional Rendering) 
+
+  const onlineStatus = useStatus();
+
+  if(onlineStatus===false) return <h1>You are offline. Please check your internet connection</h1>
+  else return(listOfRestaurants.length===0)? // When the array is empty (Conditional Rendering) 
   <Shimmer/>: // '?:' combination is ternary operator
   (
         <div className="body">
