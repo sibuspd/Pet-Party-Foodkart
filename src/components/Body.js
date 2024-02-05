@@ -9,7 +9,9 @@ const Body = () => {
 
   const [searchText,setSearchText] = useState("");
   
-  useEffect(()=>{fetchData();},[]); // fetchData() is the effect/side-effect that runs by default here.
+  useEffect(()=>{fetchData(); const timer = setInterval(()=>{console.log("Rendering")},1000);
+                  return(()=> {clearInterval(timer); console.log("useEffect withdrawn")});},[]); 
+// fetchData() is the effect/side-effect that runs by default here.
     
   const fetchData= async ()=>{
     const data = await  fetch(API_URL); 
