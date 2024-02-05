@@ -2,6 +2,9 @@
     display: inline;
     width: max-content;
 }
+.TopHeading {
+    margin-bottom: 12px;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -96,8 +99,10 @@ cursor: pointer;
     margin: -7px;
 }
 .headImg {
-    width: 263px;
-    height: 92px;
+    width: 210px;
+    height: 200px;
+    margin-left: 200px;
+    display: inline-flex;
 }
 .PureHead {
     display: flex;
@@ -105,8 +110,11 @@ cursor: pointer;
 }
 .slogan {
     display: flex;
-    padding-top: 18px;
-    padding-bottom: -6px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: inline-flex;
+    margin-top: 93px;
+    margin-bottom: 0px;
 } 
 .CardDetails{
 justify-content: center;
@@ -139,4 +147,7 @@ padding-right: 12px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 200;
     color: darkgoldenrod;
+}
+html {
+    background-color: rgb(250, 250, 210);
 }
