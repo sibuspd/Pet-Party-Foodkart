@@ -37,21 +37,21 @@ const Body = () => {
   <Shimmer/>: // '?:' combination is ternary operator
   (
         <div className="body">
-            <div className="filter">
-              <div className="search">
-                <input type="text" placeholder="Search here"className="search-box" value={searchText}
+            <div className="filter ml-10">
+              <div className="search m-1 p-1 inline-flex">
+                <input type="text" placeholder="Search here" className="border border-solid border-blue-950" value={searchText}
                 onChange={(e)=> {setSearchText(e.target.value);}}/>
                 </div>
               
-              <button className="searchBtn" onClick={()=>{
+              <button className="searchBtn px-5 mx-3 bg-green-300 rounded-xl" onClick={()=>{
                 const filtered_Restaurant = listOfRestaurants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                 setFilteredRestaurant(filtered_Restaurant);}}>Search</button>
 
-              <button className="filter-btn" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
+              <button className="filter-btn px-5 mx-4 bg-blue-200 rounded-xl" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
               setListOfRestaurants(filteredlist);}}> Top Rated </button>
             </div>
 
-            <div className="res-container">
+            <div className="ml-10 mt-2 shadow-md res-container flex flex-wrap">
               {
                filteredRestaurant.map((restaurant) => (
                <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant}/></Link>))}
