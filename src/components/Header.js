@@ -14,7 +14,7 @@ const Header = () => {
                 <ul>
                     <li>{onlineStatus?"🟢" : "🔴"}</li>
                     <li><Link to="/">Home</Link></li>
-                    <li>Cuisines</li>   
+                    <li><Link to="/cuisines">Cuisines</Link></li>   
                     <li><Link to="/about">About Us</Link></li>
                     <li>Cart</li>
                     <li><Link to="/contact">Contact</Link></li>
