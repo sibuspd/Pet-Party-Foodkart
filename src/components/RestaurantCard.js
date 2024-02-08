@@ -24,4 +24,17 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
+
+// Higher Order Compponent to show "Is Open" label
+export const withOpenLabel = (RestaurantCard) => {
+  return (props) => {                              // This is an anonymous function component that is returned.  
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-1 p-1 rounded-md">Is Open</label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+}
+
 export default RestaurantCard;

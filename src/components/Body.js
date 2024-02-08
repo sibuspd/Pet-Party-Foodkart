@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withOpenLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { API_URL } from "../utils/constants";
@@ -9,6 +9,10 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText,setSearchText] = useState("");
+
+  const RestaurantCardOpen = withOpenLabel(RestaurantCard); 
+
+  console.log(listOfRestaurants);
   
   useEffect(()=>{fetchData(); const timer = setInterval(()=>{console.log("Rendering")},1000);
                   return(()=> {clearInterval(timer); console.log("useEffect withdrawn")});},[]); 
@@ -47,14 +51,20 @@ const Body = () => {
                 const filtered_Restaurant = listOfRestaurants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                 setFilteredRestaurant(filtered_Restaurant);}}>Search</button>
 
-              <button className="filter-btn px-5 mx-4 bg-blue-200 rounded-xl" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
+              <button className="filter-btn px-5 mx-4 my-2 bg-blue-200 rounded-xl" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
               setListOfRestaurants(filteredlist);}}> Top Rated </button>
             </div>
 
             <div className="ml-10 mt-2 shadow-md res-container flex flex-wrap">
               {
-               filteredRestaurant.map((restaurant) => (
-               <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant}/></Link>))}
+               filteredRestaurant.map((restaurant) => (           // Data is being loaded onto 'restaurant'
+               <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}>
+                {
+                  2===2?
+                  (<RestaurantCardOpen resData={restaurant}/>):   // Passing Props to RestaurantCardOpen
+                  (<RestaurantCard resData={restaurant}/>)       // Passing Props to RestaurantCard
+                }
+              </Link>))}
             </div>
         </div>
     );
