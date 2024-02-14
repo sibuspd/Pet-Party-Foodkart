@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import { LOGO_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 // Bulding a Restro card component - Modular approach
 const RestaurantCard = (props) => {
@@ -7,6 +9,7 @@ const RestaurantCard = (props) => {
   const { name, costForTwo, cuisines, avgRating, cloudinaryImageId } =
     resData?.info;
   const { deliveryTime } = resData?.info.sla;
+  const {loggedInUser} = useContext(UserContext);
   return (
     <div className="res-card w-[220px] m-[4px] px-3 py-3 rounded-md bg-gray-300 hover:bg-orange-200">
       <img
@@ -20,6 +23,7 @@ const RestaurantCard = (props) => {
         <h4 className="font-semibold">{cuisines.join(" | ")}</h4>
         <h4>{avgRating} Stars</h4>
         <h4>{deliveryTime} Minutes</h4>
+        <h4 className="font-extralight">User: {loggedInUser}</h4>
       </div>
     </div>
   );
