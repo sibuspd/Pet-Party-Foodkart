@@ -11,7 +11,7 @@ const RestaurantCard = (props) => {
   const { deliveryTime } = resData?.info.sla;
   const {loggedInUser} = useContext(UserContext);
   return (
-    <div className="res-card w-[220px] m-[4px] px-3 py-3 rounded-md bg-gray-300 hover:bg-orange-200">
+    <div className="res-card w-[260px] m-[4px] px-3 py-3 rounded-md bg-gray-300 hover:bg-orange-200">
       <img
         className="res-logo rounded-lg"
         alt="res-logo"

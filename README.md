@@ -43,3 +43,11 @@
 # 2 Types of Routing in Web Apps
 - Client Side Routing
 - Server Side Routing 
+
+# Redux Toolkit
+- Installation @reduxjs/toolkit and react-redux
+- Build our Store
+- Connect Store to App
+- Add a Cart Slice
+- Dispatch Action
+- Read Data using Selector    
