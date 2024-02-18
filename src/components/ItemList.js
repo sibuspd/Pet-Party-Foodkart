@@ -4,8 +4,8 @@ import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({items, dummy}) => {
     const dispatch = useDispatch();
-    const handleAddItem = ()=> { // to Dispatch an action when Add + button is clicked 
-        dispatch(addItem("Pizza")); // Pizza here corresponds to action.payload
+    const handleAddItem = (item)=> { // to Dispatch an action when Add + button is clicked 
+        dispatch(addItem(item)); // Pizza here corresponds to action.payload
     };
 
     return(
@@ -20,7 +20,7 @@ const ItemList = ({items, dummy}) => {
                         <p className="mt-2 text-xs">{item.card.info.description}</p>
                     </div>
                 </div>
-                <button className="m-auto p-1 mt-0 absolute ml-96 mr-6 shadow-green-300 bg-black text-white rounded-md shadow-lg" onClick={handleAddItem}>{" "}Add+</button>
+                <button className="m-auto p-1 mt-0 absolute ml-96 mr-6 shadow-green-300 bg-black text-white rounded-md shadow-lg" onClick={()=>handleAddItem(item)}>{" "}Add+</button>
                 <img src={CDN_URL+item.card.info.imageId} className=" my-auto w-36 h-32 rounded-md"></img>
            </div>
         )}
