@@ -30,7 +30,7 @@ const Body = () => {
     
     setListOfRestaurants(restaurants); 
     setFilteredRestaurant(restaurants);
-    console.log(restaurants);
+    // console.log(restaurants);
   };
 
   const onlineStatus = useStatus();
@@ -44,19 +44,19 @@ const Body = () => {
         <div className="body">
             <div className="filter ml-9 flex mr-8">
               <div className="search m-1 p-1">
-                <input type="text" placeholder="Search here" className="border border-solid border-blue-950" value={searchText}
+                <input type="text" placeholder="Search here" className="border border-solid border-blue-950 ml-16" value={searchText}
                 onChange={(e)=> {setSearchText(e.target.value);}}/>
               </div>
               
-              <button className="searchBtn px-5 h-7 mt-2 mx-3 bg-green-300 rounded-xl" onClick={()=>{
+              <button className="searchBtn px-3 h-7 mt-2 mx-3 bg-green-300 rounded-xl" onClick={()=>{
                 const filtered_Restaurant = listOfRestaurants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                 setFilteredRestaurant(filtered_Restaurant);}}>Search</button>
 
-              <button className="filter-btn px-5 h-7 mx-4 mt-2 bg-blue-200 rounded-xl" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res?.info.avgRating>4.3);
+              <button className="filter-btn px-5 h-7 mx-2 mt-2 bg-blue-200 rounded-xl" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res?.info.avgRating>4.3);
               setFilteredRestaurant(filteredlist);}}> Top Rated </button>
 
               <div className="mt-3">
-              <label className="bg-slate-300 font-semibold rounded-md p-1 ml-96" 
+              <label className="bg-slate-300 font-semibold rounded-md p-1 ml-80" 
               >Customer's Name:</label>
               <input className="border border-black mx-4" 
               value={loggedInUser}
