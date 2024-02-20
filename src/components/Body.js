@@ -42,8 +42,8 @@ const Body = () => {
   <Shimmer/>: // '?:' combination is ternary operator
   (
         <div className="body">
-            <div className="filter ml-10 flex">
-              <div className="search m-1 p-1 inline-flex">
+            <div className="filter ml-9 flex mr-8">
+              <div className="search m-1 p-1">
                 <input type="text" placeholder="Search here" className="border border-solid border-blue-950" value={searchText}
                 onChange={(e)=> {setSearchText(e.target.value);}}/>
               </div>
@@ -55,7 +55,7 @@ const Body = () => {
               <button className="filter-btn px-5 h-7 mx-4 mt-2 bg-blue-200 rounded-xl" onClick={()=>{const filteredlist = listOfRestaurants.filter((res)=>res?.info.avgRating>4.3);
               setFilteredRestaurant(filteredlist);}}> Top Rated </button>
 
-              <div className="mt-2 ml-14">
+              <div className="mt-3">
               <label className="bg-slate-300 font-semibold rounded-md p-1 ml-96" 
               >Customer's Name:</label>
               <input className="border border-black mx-4" 
@@ -65,7 +65,7 @@ const Body = () => {
               
             </div>
 
-            <div className="ml-10 mt-2 shadow-md res-container flex flex-wrap">
+            <div className="ml-28 mt-2 shadow-md res-container flex flex-wrap">
               {
                filteredRestaurant.map((restaurant) => (           // Data is being loaded onto 'restaurant'
                <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}>
