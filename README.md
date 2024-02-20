@@ -51,3 +51,8 @@
 - Add a Cart Slice
 - Dispatch Action
 - Read Data using Selector    
+
+# Developer-Side Testing
+- Unit Testing
+- Integration
+- End-to-End Testing
