@@ -56,3 +56,10 @@
 - Unit Testing
 - Integration
 - End-to-End Testing
+
+# Setting up Testing in our App
+- Installed React Testing Library
+- Installed Jest
+- Installed Babel Dependencies
+- Configured Babel
+- Configure Parcel config file to use disable default Babel transpilation
