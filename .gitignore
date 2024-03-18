@@ -4,3 +4,4 @@
 .parcelrc
 .babel.config.js
 .jest.config.js
+/coverage
