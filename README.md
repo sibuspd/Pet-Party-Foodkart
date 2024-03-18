@@ -63,3 +63,5 @@
 - Installed Babel Dependencies
 - Configured Babel
 - Configure Parcel config file to use disable default Babel transpilation
+- Jest  - npx jest --init
+
