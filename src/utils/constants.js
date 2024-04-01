@@ -10,11 +10,11 @@ export const ERROR_LOGO =
 
 //CORS proof API with your custom location cords
 export const API_URL =
-  "https://thingproxy.freeboard.io/fetch/" +
-  encodeURIComponent(
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2960587&lng=85.8245398&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  );
+`https://api.allorigins.win/get?url=${encodeURIComponent(
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.51981990724166&lng=73.86026275822753&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+)}`;
 
 export const MENU_API =
-  "https://thingproxy.freeboard.io/fetch/" +
-  encodeURIComponent("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.962163&lng=79.1506201&restaurantId=");
+`https://api.allorigins.win/get?url=${encodeURIComponent(
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.51981990724166&lng=73.86026275822753&restaurantId="
+)}`;
