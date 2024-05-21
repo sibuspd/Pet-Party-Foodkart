@@ -6,29 +6,47 @@ import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams(); //destructured the resId from useParams
-
-  const resInfo = useRestaurantMenu(resId);
-  console.log(resInfo);
-
+  const { restaurantInfo, restaurantOffers } = useRestaurantMenu(resId);
   const [showIndex, setShowIndex] = useState(null);
 
-  if(resInfo === null) return <Shimmer />;
-  const {name,cuisines, costForTwoMessage, avgRating} = resInfo?.cards[0]?.card?.card?.info;
-  const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-
-  return(
-  <div className="Resmenu text-center">
-  <h1 id="ResName" className="font-bold my-6 text-2xl bg-yellow-100 py-1 shadow-lg">{name}</h1>
-  <h2 id="ResCost" className="font-semibold">{costForTwoMessage}</h2>
-  <p className="font-bold text-lg">{cuisines.join(" | ")}</p>
-  <h4 className="font-black">{avgRating} Stars</h4>
-  <h3 id="Menu" className="font-extrabold py-1 bg-yellow-500 ">Menu:</h3>
-  {categories.map((category, index) =>(
-  <RestaurantCategory key={category?.card?.card.title} data={category?.card?.card}
-                      showItems={index ===showIndex?true:false}
-                      setShowIndex = {()=>setShowIndex(index)}/>))}
-  </div>);
-}; 
+  if (restaurantInfo === null) return <Shimmer />;
+  const {
+    name,
+    cuisines,
+    areaName,
+    sla,
+    feeDetails,
+    avgRatingString,
+    totalRatingsString,
+    costForTwoMessage,
+  } = restaurantInfo;
+  return (
+    <div className="Resmenu text-center">
+      <h1
+        id="ResName"
+        className="font-bold my-6 text-2xl bg-yellow-100 py-1 shadow-lg"
+      >
+        {name}
+      </h1>
+      <h2 id="ResCost" className="font-semibold">
+        {costForTwoMessage}
+      </h2>
+      <p className="font-bold text-lg">{cuisines.join(" | ")}</p>
+      <h4 className="font-black">{avgRatingString} Stars</h4>
+      <h3 id="Menu" className="font-extrabold py-1 bg-yellow-500 ">
+        Menu:
+      </h3>
+      //idk what are trying to do with categories but do console logs in
+      useRestaurantMenu to get data
+      {/* {categories.map((category, index) => (
+        <RestaurantCategory
+          key={category?.card?.card.title}
+          data={category?.card?.card}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
+        />
+      ))} */}
+    </div>
+  );
+};
 export default RestaurantMenu;
