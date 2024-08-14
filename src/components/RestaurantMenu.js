@@ -10,13 +10,13 @@ const RestaurantMenu = () => {
   const resInfo = useRestaurantMenu(resId);
   console.log(resInfo);
 
-  const [showIndex, setShowIndex] = useState(null);
+  const [showIndex, setShowIndex] = useState(0);
 
   if(resInfo === null) return <Shimmer />;
-  const {name,cuisines, costForTwoMessage, avgRating} = resInfo?.cards[0]?.card?.card?.info;
-  const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+  const {name,cuisines, costForTwoMessage, avgRating} = resInfo?.cards[2]?.card?.card?.info;
+  // const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  console.log(resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  const categories = resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
   return(
   <div className="Resmenu text-center">
@@ -25,7 +25,7 @@ const RestaurantMenu = () => {
   <p className="font-bold text-lg">{cuisines.join(" | ")}</p>
   <h4 className="font-black">{avgRating} Stars</h4>
   <h3 id="Menu" className="font-extrabold py-1 bg-yellow-500 ">Menu:</h3>
-  {categories.map((category, index) =>(
+  {categories?.map((category, index) =>(
   <RestaurantCategory key={category?.card?.card.title} data={category?.card?.card}
                       showItems={index ===showIndex?true:false}
                       setShowIndex = {()=>setShowIndex(index)}/>))}

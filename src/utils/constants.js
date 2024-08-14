@@ -9,12 +9,19 @@ export const ERROR_LOGO =
 
 
 //CORS proof API with your custom location cords
-export const API_URL =
-`https://api.allorigins.win/get?url=${encodeURIComponent(
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.51981990724166&lng=73.86026275822753&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-)}`;
+// export const API_URL =
+// `https://api.allorigins.win/get?url=${encodeURIComponent(
+//   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.51981990724166&lng=73.86026275822753&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+// )}`;
 
-export const MENU_API =
-`https://api.allorigins.win/get?url=${encodeURIComponent(
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.51981990724166&lng=73.86026275822753&restaurantId="
-)}`;
+// Home page API
+export const Homepage_API = "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.51981990724166&lng=73.86026275822753&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+
+
+// export const MENU_API =
+// `https://api.allorigins.win/get?url=${encodeURIComponent(
+//   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.51981990724166&lng=73.86026275822753&restaurantId="
+// )}`;
+
+// API changed with proxy to avoid cors issue
+export const Menu_API = "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.51981990724166&lng=73.86026275822753&restaurantId="
