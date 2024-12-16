@@ -11,13 +11,13 @@ const RestaurantCard = (props) => {
   const { deliveryTime } = resData?.info.sla;
   const {loggedInUser} = useContext(UserContext);
   return (
-    <div className="res-card w-[260px] m-[4px] px-3 py-3 rounded-md bg-gray-300 hover:bg-orange-200">
+    <div className="res-card w-[260px] h-[450px]  m-[4px] px-3 py-3 rounded-md bg-gray-300 hover:bg-orange-200 flex flex-col justify-between">
       <img
-        className="res-logo rounded-lg"
+        className="res-logo rounded-lg w-full h-[180px] object-cover"
         alt="res-logo"
         src={CDN_URL + cloudinaryImageId}
       ></img>
-      <div className="CardDetails">
+      <div className="CardDetails flex-grow flex flex-col justify-between">
         <h3 className="font-bold py-2 text-lg">{name}</h3>
         <h4>{costForTwo}</h4>
         <h4 className="font-semibold">{cuisines.join(" | ")}</h4>

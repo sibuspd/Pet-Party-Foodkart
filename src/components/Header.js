@@ -13,7 +13,7 @@ const Header = () => {
     console.log(cartItems); 
 
     return (
-        <div className="flex justify-between shadow-lg mt-1 mb-3 px-5 bg-slate-200 
+        <div className="flex justify-around shadow-lg mt-1 mb-3 px-5 bg-slate-200 
         sm:bg-pink-400 lg:bg-green-300">
             <div className="Logo-container w-15 mt-2 hover:bg-green-600 rounded-lg"><Link to="/">
                 <img className="w-20 rounded-full border border-solid border-l-amber-950" src={LOGO_URL}/></Link>
