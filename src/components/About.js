@@ -16,7 +16,7 @@ class About extends Component {
           {({loggedInUser}) => <span className=" text-md font-bold">{loggedInUser}</span>}
           </UserContext.Consumer></div>
         <h2>Welcome to Pet Party</h2>
-        <h4>We make online food deliveries in Sambalpur</h4>
+        <h4>We make online food deliveries in Mumbai</h4>
         <UserClass name={"First Child"} location={"SAMBALPUR"}/>
         <h3>An Initiative by Pet Nutrition Private Limited</h3>     
       </div>
